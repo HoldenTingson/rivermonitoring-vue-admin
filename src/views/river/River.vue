@@ -258,7 +258,7 @@ export default {
       for (const river of rivers.value) {
         try {
           const response = await fetch(
-            `http://localhost:8080/river/status/${river.id}`,
+            `https://rivermonitoring-golang-backend-production.up.railway.app/river/status/${river.id}`,
             {
               method: "GET",
             }
@@ -303,9 +303,12 @@ export default {
         })
         .then((result) => {
           if (result.isConfirmed) {
-            fetch(`http://localhost:8080/river/${id}`, {
-              method: "DELETE",
-            });
+            fetch(
+              `https://rivermonitoring-golang-backend-production.up.railway.app/river/${id}`,
+              {
+                method: "DELETE",
+              }
+            );
             rivers.value = rivers.value.filter(
               (carrousel) => carrousel.id !== id
             );
@@ -339,7 +342,7 @@ export default {
           if (result.isConfirmed) {
             try {
               const response = await fetch(
-                `http://localhost:8080/river/connect/${id}`,
+                `https://rivermonitoring-golang-backend-production.up.railway.app/river/connect/${id}`,
                 {
                   method: "GET",
                 }
@@ -381,9 +384,12 @@ export default {
 
     onMounted(async () => {
       try {
-        const response = await fetch("http://localhost:8080/river", {
-          method: "GET",
-        });
+        const response = await fetch(
+          "https://rivermonitoring-golang-backend-production.up.railway.app/river",
+          {
+            method: "GET",
+          }
+        );
 
         if (response.ok) {
           const data = await response.json();

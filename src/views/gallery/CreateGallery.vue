@@ -100,7 +100,7 @@ export default {
 
     const image = reactive({
       blob: "",
-      path: "../client/src/assets/gallery",
+      path: "./uploads/gallery",
       filename: "",
     });
 
@@ -174,12 +174,15 @@ export default {
       }
 
       try {
-        const res = await fetch("http://localhost:8080/admin/upload", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(image),
-          credentials: "include",
-        });
+        const res = await fetch(
+          "https://rivermonitoring-golang-backend-production.up.railway.app/admin/upload",
+          {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(image),
+            credentials: "include",
+          }
+        );
         if (!res.ok) {
           throw new Error();
         }
@@ -188,11 +191,14 @@ export default {
       }
 
       try {
-        const res = await fetch("http://localhost:8080/gallery", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(data),
-        });
+        const res = await fetch(
+          "https://rivermonitoring-golang-backend-production.up.railway.app/gallery",
+          {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(data),
+          }
+        );
         if (res.ok) {
           await swalWithBootstrapButtons.fire({
             title: "Berhasil!",

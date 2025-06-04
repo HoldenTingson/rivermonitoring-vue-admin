@@ -23,7 +23,7 @@
               <div class="col-md-9">
                 <img
                   style="width: 50%"
-                  :src="`http://localhost:5173/src/assets/report/${data.attachment}`"
+                  :src="`https://rivermonitoring-golang-backend-production.up.railway.app/uploads/report/${data.attachment}`"
                 />
               </div>
             </div>
@@ -92,9 +92,12 @@ export default {
     const reportId = route.params.reportId;
 
     onMounted(async () => {
-      await fetch(`http://localhost:8080/report/${reportId}`, {
-        method: "GET",
-      })
+      await fetch(
+        `https://rivermonitoring-golang-backend-production.up.railway.app/report/${reportId}`,
+        {
+          method: "GET",
+        }
+      )
         .then((response) => response.json())
         .then((res) => {
           Object.assign(data, {

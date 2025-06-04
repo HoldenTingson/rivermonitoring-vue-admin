@@ -140,7 +140,7 @@
                             <p class="text-sm font-weight-bold mb-0">
                               <img
                                 style="width: 50%"
-                                :src="`http://localhost:5173/src/assets/profile/${user.profile}`"
+                                :src="`https://rivermonitoring-golang-backend-production.up.railway.app/uploads/profile/${user.profile}`"
                               />
                             </p>
                           </div>
@@ -232,9 +232,12 @@ export default {
         })
         .then((result) => {
           if (result.isConfirmed) {
-            fetch(`http://localhost:8080/user/${id}`, {
-              method: "DELETE",
-            });
+            fetch(
+              `https://rivermonitoring-golang-backend-production.up.railway.app/user/${id}`,
+              {
+                method: "DELETE",
+              }
+            );
             users.value = users.value.filter(
               (carrousel) => carrousel.id !== id
             );
@@ -248,9 +251,12 @@ export default {
     };
 
     onMounted(async () => {
-      await fetch("http://localhost:8080/user/userList", {
-        method: "GET",
-      })
+      await fetch(
+        "https://rivermonitoring-golang-backend-production.up.railway.app/user/userList",
+        {
+          method: "GET",
+        }
+      )
         .then((response) => response.json())
         .then((data) => {
           users.value = data;

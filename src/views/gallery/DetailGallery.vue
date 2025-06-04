@@ -25,7 +25,7 @@
               <div class="col-md-9">
                 <img
                   style="width: 50%"
-                  :src="`http://localhost:5173/src/assets/gallery/${data.image}`"
+                  :src="`https://rivermonitoring-golang-backend-production.up.railway.app/gallery/${data.image}`"
                 />
               </div>
             </div>
@@ -66,9 +66,12 @@ export default {
     const galleryId = route.params.galleryId;
 
     onMounted(async () => {
-      await fetch(`http://localhost:8080/gallery/${galleryId}`, {
-        method: "GET",
-      })
+      await fetch(
+        `https://rivermonitoring-golang-backend-production.up.railway.app/gallery/${galleryId}`,
+        {
+          method: "GET",
+        }
+      )
         .then((response) => response.json())
         .then((res) => {
           Object.assign(data, {

@@ -149,7 +149,7 @@ export default {
 
     const image = reactive({
       blob: "",
-      path: "../client/src/assets/profile",
+      path: "./uploads/profile",
       filename: "",
     });
 
@@ -283,12 +283,15 @@ export default {
       // Only upload image if there is one
       if (image.blob) {
         try {
-          const res = await fetch("http://localhost:8080/admin/upload", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(image),
-            credentials: "include",
-          });
+          const res = await fetch(
+            "https://rivermonitoring-golang-backend-production.up.railway.app/admin/upload",
+            {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify(image),
+              credentials: "include",
+            }
+          );
           if (!res.ok) {
             throw new Error();
           }
@@ -305,11 +308,14 @@ export default {
       }
 
       try {
-        const res = await fetch("http://localhost:8080/user", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(data),
-        });
+        const res = await fetch(
+          "https://rivermonitoring-golang-backend-production.up.railway.app/user",
+          {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(data),
+          }
+        );
         if (res.ok) {
           await swalWithBootstrapButtons.fire({
             title: "Berhasil!",

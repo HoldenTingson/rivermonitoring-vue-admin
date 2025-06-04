@@ -172,9 +172,12 @@ export default {
         })
         .then((result) => {
           if (result.isConfirmed) {
-            fetch(`http://localhost:8080/history/${id}`, {
-              method: "DELETE",
-            });
+            fetch(
+              `https://rivermonitoring-golang-backend-production.up.railway.app/history/${id}`,
+              {
+                method: "DELETE",
+              }
+            );
             historys.value = historys.value.filter(
               (carrousel) => carrousel.id !== id
             );
@@ -188,9 +191,12 @@ export default {
     };
 
     onMounted(async () => {
-      await fetch(`http://localhost:8080/history/river/${riverId}`, {
-        method: "GET",
-      })
+      await fetch(
+        `https://rivermonitoring-golang-backend-production.up.railway.app/history/river/${riverId}`,
+        {
+          method: "GET",
+        }
+      )
         .then((response) => response.json())
         .then((data) => {
           historys.value = data;

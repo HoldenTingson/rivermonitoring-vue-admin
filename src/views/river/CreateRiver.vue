@@ -107,7 +107,7 @@ export default {
     let map;
     let marker;
     const myIcon = L.icon({
-      iconUrl: "http://localhost:5173/src/assets/blue.png",
+      iconUrl: "https://gobanjirclient.netlify.app/assets/blue.png",
       iconSize: [70, 70],
     });
     onMounted(() => {
@@ -180,11 +180,14 @@ export default {
       }
 
       try {
-        const res = await fetch("http://localhost:8080/river", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(data),
-        });
+        const res = await fetch(
+          "https://rivermonitoring-golang-backend-production.up.railway.app/river",
+          {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(data),
+          }
+        );
         if (res.ok) {
           await swalWithBootstrapButtons.fire({
             title: "Berhasil!",

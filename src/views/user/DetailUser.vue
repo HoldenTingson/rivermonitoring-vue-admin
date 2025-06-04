@@ -35,7 +35,7 @@
               <div class="col-md-9">
                 <img
                   style="width: 50%"
-                  :src="`http://localhost:5173/src/assets/profile/${data.profile}`"
+                  :src="`https://rivermonitoring-golang-backend-production.up.railway.app/uploads/profile/${data.profile}`"
                 />
               </div>
             </div>
@@ -87,9 +87,12 @@ export default {
     const userId = route.params.userId;
 
     onMounted(async () => {
-      await fetch(`http://localhost:8080/user/${userId}`, {
-        method: "GET",
-      })
+      await fetch(
+        `https://rivermonitoring-golang-backend-production.up.railway.app/user/${userId}`,
+        {
+          method: "GET",
+        }
+      )
         .then((response) => response.json())
         .then((res) => {
           Object.assign(data, {

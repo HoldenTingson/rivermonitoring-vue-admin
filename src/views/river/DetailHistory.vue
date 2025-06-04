@@ -70,9 +70,12 @@ export default {
     const historyId = route.params.historyId;
 
     onMounted(async () => {
-      await fetch(`http://localhost:8080/history/${historyId}`, {
-        method: "GET",
-      })
+      await fetch(
+        `https://rivermonitoring-golang-backend-production.up.railway.app/history/${historyId}`,
+        {
+          method: "GET",
+        }
+      )
         .then((response) => response.json())
         .then((res) => {
           Object.assign(data, {

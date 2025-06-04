@@ -44,7 +44,7 @@
                   />
                   <img
                     v-else
-                    :src="`http://localhost:5173/src/assets/gallery/${data.image}`"
+                    :src="`https://rivermonitoring-golang-backend-production.up.railway.app/uploads/gallery/${data.image}`"
                     style="width: 30%; margin-bottom: 10px"
                   />
                 </div>
@@ -121,7 +121,7 @@ export default {
 
     const image = reactive({
       blob: "",
-      path: "../client/src/assets/gallery",
+      path: "./uploads/gallery",
       filename: "",
     });
 
@@ -199,12 +199,15 @@ export default {
 
       if (image.blob !== "") {
         try {
-          const res = await fetch("http://localhost:8080/admin/upload", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(image),
-            credentials: "include",
-          });
+          const res = await fetch(
+            "https://rivermonitoring-golang-backend-production.up.railway.app/admin/upload",
+            {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify(image),
+              credentials: "include",
+            }
+          );
           if (!res.ok) {
             throw new Error();
           }
@@ -214,11 +217,14 @@ export default {
       }
 
       try {
-        const res = await fetch(`http://localhost:8080/gallery/${galleryId}`, {
-          method: "PUT",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(data),
-        });
+        const res = await fetch(
+          `https://rivermonitoring-golang-backend-production.up.railway.app/gallery/${galleryId}`,
+          {
+            method: "PUT",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(data),
+          }
+        );
 
         if (res.ok) {
           await swalWithBootstrapButtons.fire({
@@ -244,9 +250,12 @@ export default {
     };
 
     onMounted(async () => {
-      await fetch(`http://localhost:8080/gallery/admin/${galleryId}`, {
-        method: "GET",
-      })
+      await fetch(
+        `https://rivermonitoring-golang-backend-production.up.railway.app/gallery/admin/${galleryId}`,
+        {
+          method: "GET",
+        }
+      )
         .then((response) => response.json())
         .then((res) => {
           Object.assign(data, {

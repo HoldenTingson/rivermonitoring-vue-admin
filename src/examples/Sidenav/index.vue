@@ -27,11 +27,11 @@
         id="iconSidenav"
       ></i>
       <div class="m-0 navbar-brand">
-        <!-- <img
-          src="https://dispusip.pekanbaru.go.id/wp-content/uploads/2019/02/Logo_lambang_kota_pekanbaru.png"
+        <img
+          src="https://gobanjirclient.netlify.app/assets/bpbdriau.png"
           class="navbar-brand-img h-100"
           alt="main_logo"
-        /> -->
+        />
         <span
           class="ms-2 font-weight-bold me-2"
           style="margin-left: 15px !important"

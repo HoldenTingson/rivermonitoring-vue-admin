@@ -106,7 +106,7 @@
                             <p class="text-sm font-weight-bold mb-0">
                               <img
                                 style="width: 100%"
-                                :src="`http://localhost:5173/src/assets/report/${report.attachment}`"
+                                :src="`https://rivermonitoring-golang-backend-production.up.railway.app/uploads/report/${report.attachment}`"
                               />
                             </p>
                           </div>
@@ -273,9 +273,12 @@ export default {
         })
         .then((result) => {
           if (result.isConfirmed) {
-            fetch(`http://localhost:8080/report/${id}`, {
-              method: "DELETE",
-            });
+            fetch(
+              `https://rivermonitoring-golang-backend-production.up.railway.app/report/${id}`,
+              {
+                method: "DELETE",
+              }
+            );
             reports.value = reports.value.filter((news) => news.id !== id);
             swalWithBootstrapButtons.fire(
               "Berhasil!",
@@ -287,9 +290,12 @@ export default {
     };
 
     onMounted(async () => {
-      await fetch("http://localhost:8080/report", {
-        method: "GET",
-      })
+      await fetch(
+        "https://rivermonitoring-golang-backend-production.up.railway.app/report",
+        {
+          method: "GET",
+        }
+      )
         .then((response) => response.json())
         .then((data) => {
           reports.value = data;

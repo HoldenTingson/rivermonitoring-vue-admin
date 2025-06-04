@@ -158,9 +158,12 @@ export default {
         })
         .then((result) => {
           if (result.isConfirmed) {
-            fetch(`http://localhost:8080/admin/${id}`, {
-              method: "DELETE",
-            });
+            fetch(
+              `https://rivermonitoring-golang-backend-production.up.railway.app/admin/${id}`,
+              {
+                method: "DELETE",
+              }
+            );
             admins.value = admins.value.filter((admin) => admin.id !== id);
             swalWithBootstrapButtons.fire(
               "Berhasil!",
@@ -172,9 +175,12 @@ export default {
     };
 
     onMounted(async () => {
-      await fetch("http://localhost:8080/admin/admin", {
-        method: "GET",
-      })
+      await fetch(
+        "https://rivermonitoring-golang-backend-production.up.railway.app/admin/admin",
+        {
+          method: "GET",
+        }
+      )
         .then((response) => response.json())
         .then((data) => {
           admins.value = data;

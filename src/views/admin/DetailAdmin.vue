@@ -52,9 +52,12 @@ export default {
     const adminId = route.params.adminId;
 
     onMounted(async () => {
-      await fetch(`http://localhost:8080/admin/${adminId}`, {
-        method: "GET",
-      })
+      await fetch(
+        `https://rivermonitoring-golang-backend-production.up.railway.app/admin/${adminId}`,
+        {
+          method: "GET",
+        }
+      )
         .then((response) => response.json())
         .then((res) => {
           Object.assign(data, {

@@ -135,11 +135,14 @@ export default {
       }
 
       try {
-        const res = await fetch("http://localhost:8080/admin/signup", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(data),
-        });
+        const res = await fetch(
+          "https://rivermonitoring-golang-backend-production.up.railway.app/admin/signup",
+          {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(data),
+          }
+        );
         if (res.ok) {
           await swalWithBootstrapButtons.fire({
             title: "Berhasil!",

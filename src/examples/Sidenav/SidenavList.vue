@@ -138,11 +138,14 @@ export default {
         })
         .then(async (result) => {
           if (result.isConfirmed) {
-            await fetch("http://localhost:8080/admin/logout", {
-              method: "POST",
-              headers: { "Content-Type": "application/json" },
-              credentials: "include",
-            });
+            await fetch(
+              "https://rivermonitoring-golang-backend-production.up.railway.app/admin/logout",
+              {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                credentials: "include",
+              }
+            );
             window.location.replace("/");
             await this.$store.dispatch("setAuth", false);
           }

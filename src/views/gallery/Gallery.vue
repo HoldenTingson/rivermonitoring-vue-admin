@@ -95,7 +95,7 @@
                             <p class="text-sm font-weight-bold mb-0">
                               <img
                                 style="width: 50%"
-                                :src="`http://localhost:5173/src/assets/gallery/${gallery.image}`"
+                                :src="`https://rivermonitoring-golang-backend-production.up.railway.app/uploads/gallery/${gallery.image}`"
                               />
                             </p>
                           </div>
@@ -199,9 +199,12 @@ export default {
         })
         .then((result) => {
           if (result.isConfirmed) {
-            fetch(`http://localhost:8080/gallery/${id}`, {
-              method: "DELETE",
-            });
+            fetch(
+              `https://rivermonitoring-golang-backend-production.up.railway.app/gallery/${id}`,
+              {
+                method: "DELETE",
+              }
+            );
             gallerys.value = gallerys.value.filter(
               (gallery) => gallery.id !== id
             );
@@ -215,9 +218,12 @@ export default {
     };
 
     onMounted(async () => {
-      await fetch("http://localhost:8080/gallery", {
-        method: "GET",
-      })
+      await fetch(
+        "https://rivermonitoring-golang-backend-production.up.railway.app/gallery",
+        {
+          method: "GET",
+        }
+      )
         .then((response) => response.json())
         .then((data) => {
           gallerys.value = data;
