@@ -205,6 +205,8 @@ const router = createRouter({
 router.beforeEach((to, from, next) => {
   if (to.meta.requiresAuth && !store.state.authenticated) {
     next("/");
+  } else if (to.path === "/login" && store.state.authenticated) {
+    next("/river");
   } else {
     next();
   }
