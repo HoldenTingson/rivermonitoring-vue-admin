@@ -19,7 +19,7 @@
           :class="this.$store.state.isNavFixed ? 'text-dark' : 'text-white'"
           class="opacity-8"
           href="#"
-          >Pages</a
+          >Halaman</a
         >
       </li>
       <li

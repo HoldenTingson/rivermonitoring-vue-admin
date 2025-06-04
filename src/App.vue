@@ -19,10 +19,7 @@ Coded by www.creative-tim.com
   ></div>
   <sidenav
     :custom_class="this.$store.state.mcolor"
-    :class="[
-      this.$store.state.isTransparent,
-      this.$store.state.isRTL ? 'fixed-end' : 'fixed-start',
-    ]"
+    :class="[this.$store.state.isRTL ? 'fixed-end' : 'fixed-start']"
     v-if="this.$store.state.showSidenav"
   />
   <main
