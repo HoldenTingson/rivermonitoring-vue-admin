@@ -73,7 +73,7 @@
                         <td>
                           <div class="d-flex align-items-center px-0">
                             <p class="text-sm font-weight-bold mb-0">
-                              {{ history.height }}
+                              {{ history.height }} cm
                             </p>
                           </div>
                         </td>

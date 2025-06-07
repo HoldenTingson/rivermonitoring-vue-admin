@@ -15,7 +15,7 @@
             <div class="row">
               <div class="col-md-2">Height</div>
               <div class="col-md-1">:</div>
-              <div class="col-md-9">{{ data.height }}</div>
+              <div class="col-md-9">{{ data.height }} cm</div>
             </div>
             <br />
             <div class="row">

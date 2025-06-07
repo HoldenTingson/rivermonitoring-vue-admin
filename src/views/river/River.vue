@@ -108,7 +108,7 @@
                         <td>
                           <div class="d-flex align-items-center-0">
                             <p class="text-sm font-weight-bold mb-0">
-                              {{ river.height }}
+                              {{ river.height }} cm
                             </p>
                           </div>
                         </td>
